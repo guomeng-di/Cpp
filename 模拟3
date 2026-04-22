@@ -1,0 +1,17 @@
+//67. 二进制求和
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        string s;
+        int len1=a.size()-1,len2=b.size()-1;
+        int yu=0;
+        while(len1>=0||len2>=0){
+            int num=(len1>=0?a[len1--]-'0':0)+(len2>=0?b[len2--]-'0':0)+yu;
+            s.push_back(num%2+'0');
+            yu=num/2;
+        }
+        if(yu) s.push_back(yu+'0');
+        reverse(s.begin(),s.end());
+        return s;
+    }
+};
